@@ -29,7 +29,7 @@ import init.qcom-common.rc
 
 on boot
     # Adaptive LMK
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 0
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
 
 service ril-daemon2 /system/bin/rild -c 2
@@ -40,7 +40,7 @@ service ril-daemon2 /system/bin/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
 
 service psensord /system/bin/psensord
-    class late_start
+    class main
     user system
     group system
     oneshot
